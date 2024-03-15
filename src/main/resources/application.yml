@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: spring-boot-keycloak-integration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PowerRanger
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+server:
+  port: 8081
+
+jwt:
+  auth:
+    converter:
+      resource-id: naruto
+      principle-attribute: preferred_username
